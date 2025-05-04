@@ -14,7 +14,7 @@
     "build:worker": "opennextjs-cloudflare",
     "preview": "opennextjs-cloudflare && wrangler dev",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
-    "postbuild": "cp prisma/schema.prisma .next/"
+    "postbuild": "mkdir -p .next/server && cp prisma/schema.prisma .next/server/"
 
   },
   "dependencies": {
