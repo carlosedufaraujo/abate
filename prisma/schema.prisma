@@ -1,0 +1,39 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Produtor {
+  id      Int      @id @default(autoincrement())
+  nome    String   @unique
+  email   String?  @unique
+  telefone String?
+  escalas Escala[]
+}
+
+model Planta {
+  id      Int      @id @default(autoincrement())
+  nome    String   @unique
+  cidade  String
+  estado  String
+  escalas Escala[]
+}
+
+model Escala {
+  id          Int       @id @default(autoincrement())
+  dataAbate   DateTime
+  volume      Int
+  status      String    @default("Agendado") // e.g., Agendado, Concluído, Cancelado
+  observacoes String?
+  produtor    Produtor  @relation(fields: [produtorId], references: [id])
+  produtorId  Int
+  planta      Planta    @relation(fields: [plantaId], references: [id])
+  plantaId    Int
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
