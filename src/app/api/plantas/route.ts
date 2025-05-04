@@ -1,4 +1,5 @@
 // src/app/api/plantas/route.ts
+export const runtime = 'edge';
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 
