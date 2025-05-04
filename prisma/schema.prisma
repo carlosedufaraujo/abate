@@ -5,7 +5,9 @@ datasource db {
 
 generator client {
   provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
 }
+
 
 model Produtor {
   id      Int      @id @default(autoincrement())
