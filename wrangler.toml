@@ -1,0 +1,10 @@
+name = "abate"
+compatibility_date = "2024-05-04" # Use a data de hoje ou mais recente
+
+[pages_build_output_dir]
+# Este campo é necessário para validar o wrangler.toml para Pages, mas o deixamos vazio
+# pois já configuramos o diretório de saída na interface do Cloudflare.
+
+[[compatibility_flags]]
+# Habilita a compatibilidade com APIs Node.js
+nodejs_compat = true
